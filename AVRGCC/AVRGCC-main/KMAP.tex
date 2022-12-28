@@ -1,0 +1,123 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{multicol}
+\usepackage{karnaugh-map}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{blindtext}
+\usepackage[utf8]{inputenc}
+
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\title{K map  for Boolean Expression}
+\author{Ballepu dheeraj kumar}
+
+\begin{document}
+\maketitle
+\begin{multicols}{2}
+\tableofcontents
+
+\begin{abstract}
+ This manual shows how to use Arduino uno and LED to represent the boolean expression.
+ 
+\end{abstract}
+\section{Components}
+
+%\begin{table}[]
+    \centering
+    \begin{tabular}{ |c |c |c |c |}
+\hline
+\textbf{Components} & \textbf{Value} & \textbf{Quantity} \\
+\hline
+  
+ Arduino & UNO & 1 \\  
+ 
+ 
+ LED & - & 1 \\
+ Jumper wires&M-M &3\\
+ Breadboard& &1\\
+ \hline
+ \end{tabular}
+ \vspace{3mm}
+ 
+ %\caption{Table 1.0}
+    \label{table1}
+%\end{table}
+
+\section{Hardware}
+
+\textbf{Problem 2.1} Make connections between the Arduino and LED using Breadboard.
+\section{Software}
+
+\textbf{Problem 3.1.} execute the following program after
+downloading.
+\framebox{
+\url{https://github.com/ballepu1994}}
+\vspace{10mm}
+%\begin{table}[]
+
+ \vspace{3mm}
+ 
+ %\caption{Table 1.0}
+    \label{table1}
+%\end{table}
+\vspace{5mm}
+ \begin{center}
+%Truth Table \vspace{2mm} \\
+    \setlength{\arrayrulewidth}{0.5mm}\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|c|r|l|c|}
+    \hline % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{U} & \textbf{V} & \textbf{W} & \textbf{Z} & \textbf{G}\\
+      \hline
+      0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 1 & 0\\
+      0 & 0 & 1 & 0 & 0\\
+      0 & 0 & 1 & 1 & 1\\
+      0 & 1 & 0 & 0 & 0\\
+      0 & 1 & 0 & 1 & 1\\
+      0 & 1 & 1 & 0 & 1\\
+      0 & 1 & 1 & 1 & 1\\
+      1 & 0 & 0 & 0 & 0\\
+      1 & 0 & 0 & 1 & 0\\
+      1 & 0 & 1 & 0 & 0\\
+      1 & 0 & 1 & 1 & 1\\
+      1 & 1 & 0 & 0 & 1\\
+      1 & 1 & 0 & 1 & 1\\
+      1 & 1 & 1 & 0 & 0\\
+      1 & 1 & 1 & 1 & 1\\
+      \hline
+   \end{tabular}\\
+   \vspace{3mm}
+   Truth Table 
+ \end{center} 
+ \vspace{30mm}
+
+\begin{karnaugh-map}[4][4][1][$WZ$][$UV$]
+        \minterms{3,5,6,7,11,12,13,15}
+        \maxterms{0,1,2,4,8,9,10,14}
+
+        \implicant{12}{13}
+        \implicant{7}{6}
+       \implicant{3}{11}
+       \implicant{5}{15}
+    \end{karnaugh-map}
+%    \vspace{1mm}
+    \centering
+    \textbf{K-Map}
+
+%\end{flushleft}
+
+U, V, W, Z are the
+inputs and LED is the output.Using boolean logic.
+\begin{equation}
+A= WZ+VZ+UVW'+U'VW
+\end{equation}
+
+\end{multicols}{}
+\end{document}
