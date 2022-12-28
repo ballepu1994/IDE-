@@ -1,0 +1,420 @@
+\documentclass[10pt,a4paper]{report}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,automata,petri,positioning,calc}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+\usepackage[margin=0.5in]{geometry}
+% ---- power functions -----% 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+%\providecommand $${\norm}[1]{\left\lVert#1\right\rVert}$$
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\let\vec\mathbf
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+%-------end power functions----%
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\begin{document}
+%--------------------name & rollno-----------------------
+\raggedright \textbf{Name}:\hspace{1mm} Ballepu dheeraj kumar \hspace{3cm} \Large \textbf{Matrices Using Python}\hspace{2.5cm} % 
+%\normalsize \textbf{Roll No.} :\hspace{1mm} FWC22067\vspace{1cm}%
+\begin{multicols}{2}
+
+%----------------problem statement--------------%
+\raggedright \textbf{Problem Statement:}\vspace{2mm}
+\raggedright \\Consider a circle with it's centre lying on the focus of parabola $y^2=2px$.such that it touches the directrix of the parabola.The point of intersection of the circle and parabola is ?\\
+\vspace{5mm}
+%-----------------------------solution---------------------------
+\raggedright \textbf{SOLUTION}:\vspace{2mm}\\
+
+%---------given----------------%
+\raggedright \textbf{Given}:\vspace{2mm}\\
+%Equation of circle is \\\vspace{1mm}
+%\begin{align}
+%x^2 + y^2 = 16
+%\end{align}
+Equation of Parabola is \\ \vspace{1mm}
+\begin{align}
+y^2 = 2px 
+\end{align}
+From (1) we can say that Parabola is concave towards positive x axis.\\
+For the given equation of parabola,
+	\begin{equation}
+  \vec{V} = \begin{pmatrix}
+          0 & 0 \\
+          0 & 1 \\
+          \end{pmatrix}, \hspace{4mm} \vec{u} = \myvec{-p \\ 0} \hspace{2mm} \& \hspace{2mm} f=0
+ \label{eq-2-}
+  \end{equation}
+ The eigenvalue decomposition of a symmetric matrix $\vec{V}$ is given by
+  \begin{equation}
+  \vec{P}^{\top}\vec{V}\vec{P} = \vec{D} \hspace{1cm}
+  \vec{P} = \myvec{\vec{P_1} & \vec{P_2}}                                                    \label{eq-3-} 
+  \end{equation}
+\begin{equation}
+ \vec{D} = \begin{pmatrix}
+          \lambda_1 & 0 \\
+          0 & \lambda_2 \\
+          \end{pmatrix}
+  \label{eq-4-}
+  \end{equation}
+  On solving $\eqref{eq-3-}$ with $\vec{P_1} = \myvec{1 \\ 0} \hspace{2mm} \& \hspace{2mm} \vec{P_2} = \myvec{0 \\ 1}$, we get
+  \begin{equation}
+ \vec{D} = \begin{pmatrix}
+         0 & 0 \\                                                                              0 & 1 \\                                                                              
+ \end{pmatrix}                                                                      
+\label{eq-5-}
+\end{equation}
+where,
+  \begin{equation}
+  \lambda_1 = 0 \hspace{2mm} and \hspace{2mm} \lambda_2 = 1
+  \label{eq-6-}
+  \end{equation}
+  We have,
+  \begin{equation}
+  eccentricity, \hspace{3mm} e = \sqrt{1-\frac{\lambda_1}{\lambda_2}}
+  \label{eq-7-}
+  \end{equation}
+  from \eqref{eq-6-},
+  \begin{equation}                                                                             e =1
+  \label{eq-8-}         
+  \end{equation}
+  Normal vector of diretrix $\vec{n}$ is given by                                              \begin{equation}                                                                    
+\vec{n} = \sqrt{\lambda_2}\vec{P_1}
+  \label{eq-9-}
+  \end{equation}
+  This gives,
+  \begin{equation}
+  \vec{n} = \myvec{1 \\ 0}
+  \label{eq-10-}
+  \end{equation}
+  For e=1, we have
+  \begin{equation}
+c=\frac{\norm{\vec{u}}^2 - \lambda_2 f   }{2\vec{u}^{\top}\vec{n}}
+  \end{equation}
+  On solving we get,
+\begin{equation}
+ c =  -p/2
+\end{equation}
+  Focii of a conic is given by the equation,
+ \begin{equation}                                                                      
+ \vec{F} = \frac{ce^2\vec{n}-\vec{u}}{\lambda_2}                                         
+ \label{eq-13-}                                                                          
+ \end{equation}
+ \begin{equation}                                                                       
+ \vec{F} =    \myvec{p/2 \\ 0}                                                        
+ \label{eq-14-}                                                                         
+ \end{equation}
+ The directrix of the parabola is\\
+ \begin{equation}
+	 \vec{n}^{\top}\vec{X}=\vec c
+ \end{equation}
+\begin{equation}                                    \begin{pmatrix}                                1 & 0 
+\end{pmatrix}\vec{X}=\vec c
+\end{equation}
+%whose focus is\\
+%\begin{align}
+%\vec{F}=\myvec{p/2\\
+%0}
+%\end{align} 
+%which is also the centre of the circle
+ \vspace{2mm}
+%From equation (1) radius of circle is,\\ \vspace{1mm}
+%\begin{align}
+%r= 4
+%\end{align}
+
+%-------------To find ------------------%
+\textbf{To Find }\vspace{2mm}\\
+To find the intersection points of the circle and parabola\vspace{2mm}  \\ 
+%--------------steps----------------------%
+\textbf{STEP-1}\vspace{2mm}\\
+The given circle and parabola can be expressed as conics with parameters,\\ \vspace{1mm}
+For circle,\\ \vspace{1mm}
+\begin{align}
+\vec{V}_1=\vec{I}
+\end{align}
+\begin{align}
+\vec{V}_1=\myvec{
+1 & 0\\
+0 & 1
+}
+\end{align} 
+
+\begin{align}
+\vec{u_1}=\myvec{-p/2\\
+0}
+\end{align} 
+\begin{align}
+f_1=-3p^2/4
+\end{align} \vspace{2mm}
+
+For Parabola,\\\vspace{1mm}
+\begin{align}
+\vec{V}_2=\myvec{
+0 & 0\\
+0 & 1
+}
+\end{align} 
+
+\begin{align}
+\vec{u_2}= \myvec{
+-p\\
+0
+}
+\end{align} 
+\begin{align}
+f_2=0
+\end{align} \vspace{2mm}
+
+\textbf{STEP-2}\vspace{2mm}\\
+The intersection of the given conics is obtained
+as\\
+\begin{align}
+	\vec{x}^{\top}\brak{\vec{V}_1 + \mu\vec{V}_2}\vec{x}+2 \brak{\vec{u}_1+\mu \vec{u}_2}^{\top} \vec{x} 
+	\\
+	+ \brak{f_1+\mu f_2}= 0
+    \end{align}
+    
+\begin{align}
+\vec{V}_1+\mu\vec{V}_2= \myvec{
+1 & 0\\
+0 & \mu+1
+}
+\end{align}
+\begin{align}
+\vec{u}_1+\mu\vec{u}_2= -\myvec{
+p/2+\mu p\\
+0
+}
+\end{align}
+\begin{align}
+f_1+\mu f_2= -3p^2/4
+\end{align}
+This conic is a single straight line if and only if, \\ \vspace{1mm}
+\begin{align}
+\mydet{\vec{V}_1 + \mu\vec{V}_2 & \vec{u}_1+\mu \vec{u}_2\\ \brak{\vec{u}_1+\mu \vec{u}_2}^{\top} & f_1 + \mu f_2} &= 0
+\end{align}
+And,\\
+\begin{align}
+%\mydet{\vec{V}_1 + \mu\vec{V}_2} &= 0
+\end{align}
+Substituting equation (25),(26) and (27) in equation (28)\\ \vspace{1mm}
+We get,\\ \vspace{1mm}
+\begin{align}
+\implies \mydet{1& 0 & -p/2-\mu p\\ 
+0 & 1+\mu & 0 \\
+-p/2-\mu p & 0 & -3p^2/4
+} &= 0
+\end{align}
+Solving the above equation we get,\\ \vspace{1mm}
+%\begin{align}
+%9\mu^3 + 9\mu^2 + 16\mu + 16=0
+%\end{align}
+gives,\\ \vspace{1mm}
+\begin{align}
+    \mu = -1
+\end{align}
+ Thus, the parameters for a straight line can be expressed as\\ \vspace{1mm}
+ \begin{align}
+	\vec{V} &= 
+\vec{V}_1 + \mu\vec{V}_2
+=\myvec{ 1 & 0 \\ 0 & 0},
+\\
+	\vec{u} &=
+\vec{u}_1+\mu \vec{u}_2
+	= \myvec{
+p/2\\
+0
+    }
+\\
+	f&=-3p^2/4,
+	\\
+%	\implies \vec{D} &= \vec{V}, \vec{P} = \vec{I}
+ %   \end{align}
+ \implies \vec{D} &= \vec{V}, \vec{P} = \vec{I}
+ \end{align} 
+ Thus, the desired pair of straight lines are \\
+ \begin{align}
+       \myvec{\sqrt{\abs{\lambda_1}} & \pm \sqrt{\abs{\lambda_2}}}\vec{P}^{\top}\brak{\vec
+    {x}-\vec{c}} &= 0
+ \end{align}
+\begin{align}
+    \implies\myvec{0 & \pm 1}\vec{x}-\vec{c} &= 0
+\end{align}
+ \begin{align}
+      \text{or, }\vec{x} =\vec{c} + \kappa \myvec{\pm 1 \\ 0}
+\end{align}
+The points of intersection of the line is given by, \\
+ \begin{align} L: \quad \vec{x} = \vec{q} + \kappa \vec{m} \quad \kappa \in \mathbb{R}
+\end{align}
+ with the conic section, \\
+ \begin{align}
+         \vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top} \vec{x} + f = 0
+ \end{align}
+are given by \\
+ \begin{align}
+ \vec{x}_i = \vec{q} + \kappa_i \vec{m}
+ \end{align}
+%with the conic section 
+%\begin{align}
+%	\vec{x}^{\top}\vec{V}\vec{x} + 2\vec{u}^{\top} \vec{x} + f = 0
+%\label{eq:conic_quad_form}
+%\end{align}
+%\begin{align}
+%	\vec{x}^{\top}\myvec{
+%1 & 0\\
+%0 & 0
+%}\vec{x}+2\myvec{p/2 & 0}\vec{x}-3p^2/4=0
+%\end{align}
+%\begin{align}
+ %  q=\myvec{p/2\\-3p/2} 
+%\end{align}
+%\begin{equation}
+%	\vec{x}^{\top}
+%	\begin{pmatrix}
+%		4 & 0\\
+%		0 & 0
+%	\end{pmatrix}
+%	-2
+%	\begin{pmatrix}
+%		-2p\\
+%		0
+%	\end{pmatrix}
+%	-3p^2=0
+%\end{equation}
+%By solving the above equation we get\\
+%\begin{align}
+%	q=\myvec{p/2\\-3p/2}
+%\end{align}
+%\noindent Thus, the desired pair of straight lines are \\
+%\begin{align} 
+%	\myvec{p/2 \\-3p/2 }x+ \myvec{0 &1}y
+%	
+%\end{align} 
+%upon substituting from  The points of intersection of the line 
+%\begin{align}
+%L: \quad \vec{x} = \vec{q} + \kappa \vec{m} \quad \kappa \in \mathbb{R}
+%\label{eq:conic_tangent}
+%\end{align}
+%\begin{align}
+%\vec{x}_i = \vec{q} + \kappa_i \vec{m}
+%\label{eq:conic_tangent_pts}
+%\end{align}
+
+
+ %with the conic section  we have ,
+
+%\begin{align}
+%\vec{x}_i = \vec{q} + \kappa_i \vec{m}
+%\end{align}
+where, \\
+{\tiny
+\begin{multline}
+\kappa_i = \frac{1}
+{
+\vec{m}^T\vec{V}\vec{m}
+}
+\lbrak{-\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}}
+\\
+\pm
+\rbrak{\sqrt{
+\sbrak{
+\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}
+}^2
+-
+\brak
+{
+\vec{q}^T\vec{V}\vec{q} + 2\vec{u}^T\vec{q} +f
+}
+\brak{\vec{m}^T\vec{V}\vec{m}}
+}
+}
+\end{multline}
+}
+On substituting\\
+\begin{align}
+\vec{q} &= \myvec{
+p/2\\
+-3p/2
+} 
+\end{align}
+\begin{align}
+\vec{m} = \myvec{0 \\ 1}
+\end{align}
+With the given circle\\ 
+\begin{align}
+	\vec{V} &= \myvec{
+1 & 0\\
+0 & 1
+    }
+\end{align}
+\begin{align}
+	\vec{u} = \myvec{-p/2 \\0}
+ \end{align}
+ \begin{align}
+  f = -3p^2/4
+ \end{align}
+The value of  $\kappa_i$\\
+\begin{align}
+    \kappa_i = 5p/2,p/2
+\end{align}
+\vspace{2mm}
+The points of intersection with Parabola along circle are \\
+\begin{align}
+    \vec{A}=\myvec{
+p/2\\
+p
+    }
+\end{align}
+\begin{align}
+    \vec{B}=\myvec{
+p/2\\
+-p
+    }
+\end{align}
+
+   \includegraphics[scale = 0.4]{/sdcard/Download/Conic/figure1/fig8.pdf}
+ 
+
+\vspace{2mm} \textbf{Construction}
+\begin{center}
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|c|}
+    \hline 
+    \textbf{Points} & \textbf{coordinates} \\ \hline
+   $\vec{A}$ & $\myvec{
+   p/2\\
+   p
+   } $ \\\hline
+   $\vec{B}$ & $\myvec{
+   p/2\\
+   -p
+   } $ \\\hline
+      \end{tabular}
+  \end{center}
+
+*Verify the above proofs in the following code.\\
+\framebox{
+\url{https://github.com/ballepu1994}}
+\bibliographystyle{ieeetr}
+ \end{multicols}
+\end{document}
